@@ -159,11 +159,10 @@ export const resetPassword = async (req, res, next) => {
       });
       const salt = await bcrypt.genSalt(10);
       const encryptedPassword = await bcrypt.hash(newPassword, salt);
-      user.password = encryptedPassword;
       try {
-        const updatedUser = await user.findOneAndUpdate(
+        const updatedUser = await User.findOneAndUpdate(
           { _id: user._id },
-          { $set: user },
+          { $set: { password: encryptedPassword } },
           { new: true }
         );
         return next(CreateSuccess(200, "Senha alterada com sucesso"));
