@@ -1,10 +1,12 @@
 import Role from "../models/role.js";
 import User from "../models/user.js";
+import userToken from "../models/userToken.js";
 import { CreateError } from "../utils/error.js";
 import { CreateSuccess } from "../utils/success.js";
 
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
+import nodemailer from "nodemailer";
 
 export const register = async (req, res, next) => {
   const role = await Role.find({ role: "User" });
@@ -82,4 +84,61 @@ export const login = async (req, res, next) => {
   } catch (error) {
     console.error(error);
   }
+};
+
+export const sendEmail = async (req, res, next) => {
+  const email = req.body.email;
+  const user = await User.findOne({
+    email: { $regex: "^" + email + "$", $options: "i" },
+  });
+  if (!user) {
+    return next(CreateError(404, "Nenhum usuário com este email foi encontrado."));
+  }
+  const payload = {
+    email: user.email,
+  };
+  const expiresIn = 300;
+  const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn });
+
+  const newToken = new userToken({
+    userId: user._id,
+    token: token,
+  });
+
+  const mailTransporter = nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+      user: process.env.EMAIL,
+      pass: process.env.EMAIL_PASSWORD,
+    },
+  });
+  let mailDetails = {
+    from: "igorminranda17@gmail.com",
+    to: email,
+    subject: "Alterar senha",
+    html: `
+  <html>
+  <head>
+    <title>Solicitação de alteração de senha</title>
+  </head>
+  <body style="font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f6f6f6;">
+    <div style="max-width: 600px; margin: 0 auto; padding: 20px; background-color: #ffffff; border-radius: 5px;">
+      <h1 style="color: #333333;">Solicitação para alterar senha</h1>
+      <p style="color: #666666;">Olá, ${user.userName},</p>
+      <p style="color: #666666;">Recebemos uma solicitação para alterar sua senha no BookStore. Para completar este processo, por favor, clique no botão abaixo:</p>
+      <a href="${process.env.LIVE_URL}/reset/${token}" style="display: inline-block; background-color: #0066cc; color: #ffffff; padding: 12px 25px; text-decoration: none; border-radius: 4px; text-align: center;">Alterar senha</a>
+      <p style="color: #666666;">Pedimos que se atente, pois este código irá expirar em 5 minutos. Se você não solicitou esta alteração, por favor, ignore este e-mail.</p>
+    </div>
+  </body>
+  </html>`,
+  };
+
+  mailTransporter.sendMail(mailDetails, async (err, data) => {
+    if (err) {
+      console.error(err);
+      return next(CreateError(500, "Erro ao enviar e-mail"));
+    }
+    await newToken.save();
+    return next(CreateSuccess(200, "E-mail enviado com sucesso"));
+  });
 };
