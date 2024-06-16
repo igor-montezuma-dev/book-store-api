@@ -92,7 +92,9 @@ export const sendEmail = async (req, res, next) => {
     email: { $regex: "^" + email + "$", $options: "i" },
   });
   if (!user) {
-    return next(CreateError(404, "Nenhum usuário com este email foi encontrado."));
+    return next(
+      CreateError(404, "Nenhum usuário com este email foi encontrado.")
+    );
   }
   const payload = {
     email: user.email,
@@ -140,5 +142,34 @@ export const sendEmail = async (req, res, next) => {
     }
     await newToken.save();
     return next(CreateSuccess(200, "E-mail enviado com sucesso"));
+  });
+};
+
+export const resetPassword = async (req, res, next) => {
+  const token = req.body.token;
+  const newPassword = req.body.password;
+
+  jwt.verify(token, process.env.JWT_SECRET, async (err, data) => {
+    if (err) {
+      return next(CreateError(400, "Token inválido ou expirado"));
+    } else {
+      const response = data;
+      const user = await User.findOne({
+        email: { $regex: "^" + response.email + "$", $options: "i" },
+      });
+      const salt = await bcrypt.genSalt(10);
+      const encryptedPassword = await bcrypt.hash(newPassword, salt);
+      user.password = encryptedPassword;
+      try {
+        const updatedUser = await user.findOneAndUpdate(
+          { _id: user._id },
+          { $set: user },
+          { new: true }
+        );
+        return next(CreateSuccess(200, "Senha alterada com sucesso"));
+      } catch (error) {
+        return next(CreateError(500, "Erro ao alterar senha"));
+      }
+    }
   });
 };
