@@ -5,7 +5,7 @@ import { CreateSuccess } from "../utils/success.js";
 export const getBooks = async (req, res, next) => {
   try {
     const books = await Book.find();
-    return next(CreateSuccess(200, books));
+    return next(CreateSuccess(200, "Success", books));
   } catch (error) {
     return next(CreateError(500, "Internal server error"));
   }
