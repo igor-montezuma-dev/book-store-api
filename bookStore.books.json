@@ -1,0 +1,143 @@
+[
+    {
+      "title": "Uma Introdução à Programação C e GUI, 2ª Edição",
+      "isbn13": "9781912047451",
+      "price": "R$ 74.60",
+      "image": "https://itbook.store/img/books/9781912047451.png",
+      "url": "https://itbook.store/books/9781912047451"
+    },
+    {
+      "title": "Snowflake: O Guia Definitivo",
+      "isbn13": "9781098103828",
+      "price": "R$ 294.50",
+      "image": "https://itbook.store/img/books/9781098103828.png",
+      "url": "https://itbook.store/books/9781098103828"
+    },
+    {
+      "title": "Python para Análise de Dados, 3ª Edição",
+      "isbn13": "9781098104030",
+      "price": "R$ 180.90",
+      "image": "https://itbook.store/img/books/9781098104030.png",
+      "url": "https://itbook.store/books/9781098104030"
+    },
+    {
+      "title": "Machine Learning Confiável",
+      "isbn13": "9781098106225",
+      "price": "R$ 219.95",
+      "image": "https://itbook.store/img/books/9781098106225.png",
+      "url": "https://itbook.store/books/9781098106225"
+    },
+    {
+      "title": "Visualização de Dados com Python e JavaScript, 2ª Edição",
+      "isbn13": "9781098111878",
+      "price": "R$ 304.95",
+      "image": "https://itbook.store/img/books/9781098111878.png",
+      "url": "https://itbook.store/books/9781098111878"
+    },
+    {
+      "title": "Aprendendo Microsoft Power BI",
+      "isbn13": "9781098112844",
+      "price": "R$ 202.30",
+      "image": "https://itbook.store/img/books/9781098112844.png",
+      "url": "https://itbook.store/books/9781098112844"
+    },
+    {
+      "title": "Design de Software em C++",
+      "isbn13": "9781098113162",
+      "price": "R$ 235.15",
+      "image": "https://itbook.store/img/books/9781098113162.png",
+      "url": "https://itbook.store/books/9781098113162"
+    },
+    {
+      "title": "Terraform: Do Início ao Funcionamento, 3ª Edição",
+      "isbn13": "9781098116743",
+      "price": "R$ 209.95",
+      "image": "https://itbook.store/img/books/9781098116743.png",
+      "url": "https://itbook.store/books/9781098116743"
+    },
+    {
+      "title": "Receitas de Flutter e Dart",
+      "isbn13": "9781098119515",
+      "price": "R$ 252.60",
+      "image": "https://itbook.store/img/books/9781098119515.png",
+      "url": "https://itbook.store/books/9781098119515"
+    },
+    {
+      "title": "Manual de Ciência de Dados com Python, 2ª Edição",
+      "isbn13": "9781098121228",
+      "price": "R$ 280.80",
+      "image": "https://itbook.store/img/books/9781098121228.png",
+      "url": "https://itbook.store/books/9781098121228"
+    },
+    {
+      "title": "Receitas do Raspberry Pi, 4ª Edição",
+      "isbn13": "9781098130923",
+      "price": "R$ 74.95",
+      "image": "https://itbook.store/img/books/9781098130923.png",
+      "url": "https://itbook.store/books/9781098130923"
+    },
+    {
+      "title": "Mapas Azure Usando Blazor de Forma Sucinta",
+      "isbn13": "9781642002263",
+      "price": "R$ 0.00",
+      "image": "https://itbook.store/img/books/9781642002263.png",
+      "url": "https://itbook.store/books/9781642002263"
+    },
+    {
+      "title": "Quarkus e React Full Stack",
+      "isbn13": "9781800562738",
+      "price": "R$ 199.95",
+      "image": "https://itbook.store/img/books/9781800562738.png",
+      "url": "https://itbook.store/books/9781800562738"
+    },
+    {
+      "title": "Matemática para Programação de Jogos e Gráficos de Computador",
+      "isbn13": "9781801077330",
+      "price": "R$ 249.95",
+      "image": "https://itbook.store/img/books/9781801077330.png",
+      "url": "https://itbook.store/books/9781801077330"
+    },
+    {
+      "title": "Arquitetando e Construindo SoCs de Alta Velocidade",
+      "isbn13": "9781801810999",
+      "price": "R$ 164.95",
+      "image": "https://itbook.store/img/books/9781801810999.png",
+      "url": "https://itbook.store/books/9781801810999"
+    },
+    {
+      "title": "Desenvolvimento Web com Julia e Genie",
+      "isbn13": "9781801811132",
+      "price": "R$ 199.95",
+      "image": "https://itbook.store/img/books/9781801811132.png",
+      "url": "https://itbook.store/books/9781801811132"
+    },
+    {
+      "title": "Gerenciamento de Memória em Java",
+      "isbn13": "9781801812856",
+      "price": "R$ 174.95",
+      "image": "https://itbook.store/img/books/9781801812856.png",
+      "url": "https://itbook.store/books/9781801812856"
+    },
+    {
+      "title": "Desenvolvimento Orientado a Testes com C++",
+      "isbn13": "9781803242002",
+      "price": "R$ 224.95",
+      "image": "https://itbook.store/img/books/9781803242002.png",
+      "url": "https://itbook.store/books/9781803242002"
+    },
+    {
+      "title": "Design de Teste de Software",
+      "isbn13": "9781804612569",
+      "price": "R$ 224.95",
+      "image": "https://itbook.store/img/books/9781804612569.png",
+      "url": "https://itbook.store/books/9781804612569"
+    },
+    {
+      "title": "Microservices com Go",
+      "isbn13": "9781804617007",
+      "price": "R$ 149.95",
+      "image": "https://itbook.store/img/books/9781804617007.png",
+      "url": "https://itbook.store/books/9781804617007"
+    }
+  ]
+  
