@@ -4,8 +4,10 @@ import dotenv from "dotenv";
 import express from "express";
 import mongoose from "mongoose";
 import authRouter from "./routes/auth.js";
+import bookRouter from "./routes/book.js";
 import roleRouter from "./routes/role.js";
 import userRouter from "./routes/user.js";
+import { seedBooksData } from "./seed.js";
 
 const app = express();
 dotenv.config();
@@ -21,8 +23,9 @@ app.use(
 app.use("/api/role", roleRouter);
 app.use("/api/auth", authRouter);
 app.use("/api/user", userRouter);
+app.use("/api/books", bookRouter);
 
-//Response handeler
+//Response handler
 app.use((obj, req, res, next) => {
   const statusCode = obj.status || 500;
   const message = obj.message || "Success!";
@@ -49,6 +52,9 @@ app.use((err, req, res, next) => {
 const connectDB = async () => {
   try {
     await mongoose.connect(process.env.MONGO_URL);
+    if (process.argv.includes("--seed")) {
+      await seedBooksData();
+    }
     console.log("MongoDB is connected");
   } catch (error) {
     throw error;
