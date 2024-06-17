@@ -16,7 +16,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
   cors({
-    origin: "https://books-store-blue.vercel.app",
+    origin: "http://localhost:4200",
     credentials: true,
   })
 );
