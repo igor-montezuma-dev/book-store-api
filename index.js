@@ -16,7 +16,10 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
   cors({
-    origin: "http://localhost:4200",
+    origin: [
+      "http://localhost:4200",
+      "https://books-store-1ucg7fa0m-igormontezuma20s-projects.vercel.app",
+    ],
     credentials: true,
   })
 );
